@@ -11,8 +11,8 @@ export default function Door(props: DoorProps) {
   const door = props.value;
   const selected = door.withGift && !door.open ? styles.selected : "";
 
-  const changeSelection = (e) => props.onChange(door.toggleSelection());
-  const open = (e) => {
+  const changeSelection = () => props.onChange(door.toggleSelection());
+  const open = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     props.onChange(door.openDoor());
   };

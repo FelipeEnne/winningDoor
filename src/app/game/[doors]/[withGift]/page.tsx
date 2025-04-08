@@ -10,10 +10,21 @@ import DoorModel from "@/model/door";
 import { createDoor, updateDoors } from "@/functions/doors";
 
 export default function Home() {
-  const { doors: doorsParams, withGift: withGiftParams } = useParams();
+  const defaultDoorsParams = 3;
+  const defaultWithGiftParams = 3;
+  const { doors: getDoorsParams, withGift: getWithGiftParams } = useParams();
+
+  const doorsParams =
+    getDoorsParams && typeof +getDoorsParams == "number"
+      ? +getDoorsParams
+      : defaultDoorsParams;
+  const withGiftParams =
+    getWithGiftParams && typeof +getWithGiftParams == "number"
+      ? +getWithGiftParams
+      : defaultWithGiftParams;
 
   const [doors, setDoors] = useState<DoorModel[]>(
-    createDoor(+doorsParams, +withGiftParams)
+    createDoor(doorsParams, withGiftParams)
   );
 
   function rederDoors() {
