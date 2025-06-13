@@ -2,7 +2,7 @@ import styles from "./Card.module.css";
 
 interface CardProps {
   bgcolor?: string;
-  children?: any;
+  children?: React.ReactNode;
 }
 
 export default function Card(props: CardProps) {

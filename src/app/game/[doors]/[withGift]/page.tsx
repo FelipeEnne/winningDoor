@@ -27,6 +27,10 @@ export default function Home() {
     createDoor(doorsParams, withGiftParams)
   );
 
+  const qtdValidDoors = doorsParams >= 3 && doorsParams <= 100;
+  const qtdValidGift = withGiftParams >= 1 && withGiftParams < doorsParams;
+  const [valid] = useState(qtdValidDoors && qtdValidGift);
+
   function rederDoors() {
     return doors.map((door) => {
       return (
@@ -41,7 +45,9 @@ export default function Home() {
 
   return (
     <div id={styles.game}>
-      <div className={styles.doors}>{rederDoors()}</div>
+      <div className={styles.doors}>
+        {valid ? rederDoors() : <h1>Invalid game</h1>}
+      </div>
       <div className={styles.buttons}>
         <Link href="/">
           <button>Restart game</button>

@@ -1,0 +1,32 @@
+.numberInput {
+  display: flex;
+  flex:1;
+  color: #000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  color: #555;
+  font-size: 1.5rem;
+}
+
+.value {
+  font-size: 6rem;
+}
+
+.btns {
+  display: flex;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  height: 80px;
+  width: 80px;
+  margin: 5px;
+  boder: none;
+}
